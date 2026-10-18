@@ -1,0 +1,22 @@
+
+<h1>Список користувачів</h1>
+
+@for (user of users; track user.id) {
+  <div>
+    <h3>{{ user.name }}</h3>
+    <p>Email: {{ user.email }}</p>
+
+    <button (click)="showUserDetails(user.id)">
+      Показати деталі
+    </button>
+
+    <hr>
+  </div>
+}
+
+@if (selectedUser) {
+  <h2>Деталі користувача</h2>
+  <p>ID: {{ selectedUser.id }}</p>
+  <p>Ім'я: {{ selectedUser.name }}</p>
+  <p>Email: {{ selectedUser.email }}</p>
+}

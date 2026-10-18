@@ -1,59 +1,82 @@
-# AngularHw4
+# Angular Homework 4
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 22.2.0.
+Навчальний проєкт на Angular, який демонструє роботу із сервісами, списками та зовнішнім API для пошуку фільмів.
 
-## Development server
+## Функціонал
 
-To start a local development server, run:
+- **Users:** відображення списку користувачів.
+- **Todos:** відображення списку завдань і зміна їхнього статусу виконання.
+- **Movies:** пошук фільмів за назвою та необов'язковим роком випуску через OMDb API.
+- **Movie Details:** перегляд детальної інформації про вибраний фільм.
+
+## Технології
+
+- Angular
+- TypeScript
+- HTML
+- CSS
+- OMDb API
+
+## Встановлення та запуск
+
+### 1. Клонування репозиторію
+
+```bash
+git clone https://github.com/Amber-XD/angular_hw_4.git
+cd angular_hw_4
+```
+
+### 2. Встановлення залежностей
+
+Переконайтеся, що у вас встановлено Node.js та npm.
+
+```bash
+npm install
+```
+
+### 3. Налаштування OMDb API
+
+Для пошуку фільмів потрібен власний API-ключ OMDb.
+
+Отримати ключ можна на сайті: https://www.omdbapi.com/apikey.aspx
+
+Створіть файл `src/environments/environment.ts` із таким вмістом:
+
+```typescript
+export const environment = {
+  omdbApiKey: 'YOUR_OMDB_API_KEY',
+};
+```
+
+Замініть `YOUR_OMDB_API_KEY` на свій API-ключ.
+
+**Важливо:** файл `src/environments/environment.ts` доданий до `.gitignore` і не публікується в репозиторії. Для запуску пошуку фільмів кожен користувач має створити цей файл і вказати власний ключ.
+
+### 4. Запуск проєкту
+
+Якщо Angular CLI встановлений глобально:
 
 ```bash
 ng serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+Або запустіть через npm:
 
 ```bash
-ng generate component component-name
+npm start
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+Після запуску відкрийте в браузері:
 
-```bash
-ng generate --help
-```
+http://localhost:4200/
 
-## Building
+## Примітки
 
-To build the project run:
+- Для пошуку фільмів потрібне підключення до інтернету.
+- Для роботи пошуку необхідний дійсний OMDb API-ключ.
+- Якщо пошук не працює, перевірте правильність ключа та доступність API.
+- API-ключ у клієнтському Angular-застосунку не є повністю захищеним від користувачів браузера. Файл ігнорується Git, щоб не публікувати ключ у репозиторії.
 
-```bash
-ng build
-```
+## Автор
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Голоднюк Михайло (aka Amber-XD)

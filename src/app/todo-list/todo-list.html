@@ -1,0 +1,26 @@
+
+<h1>Список завдань</h1>
+
+<label>Фільтр: </label>
+
+<button (click)="filter = 'all'">Усі</button>
+<button (click)="filter = 'completed'">Виконані</button>
+<button (click)="filter = 'active'">Не виконані</button>
+
+@for (todo of todos; track todo.id) {
+  @if (
+    filter == 'all' ||
+    (filter == 'completed' && todo.completed) ||
+    (filter == 'active' && !todo.completed)
+    ) {
+    <div>
+      <input
+        type="checkbox"
+        [checked]="todo.completed"
+        (change)="updateTodoStatus(todo.id, $any($event.target).checked)"
+      >
+      <span>{{ todo.title }}</span>
+      <span> — {{ todo.completed ? 'Виконано' : 'Не виконано' }}</span>
+    </div>
+  }
+}
